@@ -1,4 +1,5 @@
-- name: build-deploy
+name: build-deploy
+
 on:
   release:
     types: [published]
