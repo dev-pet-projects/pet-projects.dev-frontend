@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "nuxt-ts",
-    "deploy": "push-dir --dir=dist --branch=master --cleanup",
+    "deploy": "push-dir --dir=dist --branch=master --remote=https://github.com/dev-pet-projects/dev-pet-projects.git --cleanup",
     "build": "nuxt-ts build",
     "start": "nuxt-ts start",
     "generate": "nuxt-ts generate",
