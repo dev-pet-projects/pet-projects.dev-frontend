@@ -1,7 +1,7 @@
 <template>
   <section class="section">
     <div class="columns is-mobile">
-      <github-projects :reposData="reposData" />
+      <github-projects :repos-data="reposData" />
     </div>
   </section>
 </template>
@@ -14,24 +14,23 @@ export default {
   name: 'HomePage',
 
   components: {
-    Card, GithubProjects
+    GithubProjects,
   },
-  data () {
+  data() {
     return {
-      reposData: []
+      reposData: [],
     }
   },
   created() {
     this.getRepositories()
   },
   methods: {
-    getRepositories () {
-       // Organisation's repositories
-        GithubRepo.getRepositories()
-        .then((response) => {
-            this.reposData = response.data
-        })
-    }
-  }
+    getRepositories() {
+      // Organisation's repositories
+      GithubRepo.getRepositories().then((response) => {
+        this.reposData = response.data
+      })
+    },
+  },
 }
 </script>
