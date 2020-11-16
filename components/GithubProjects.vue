@@ -1,42 +1,37 @@
 <template>
-  <div class="row">
-    <div class="col">
-      <div class="tbl-header">
-        <table cellpadding="0" cellspacing="0" border="0">
-          <thead>
-            <tr>
-              <th>#</th>
-              <th>Name</th>
-              <th>Created</th>
-              <th>Language</th>
-              <th>License</th>
-              <th>Link</th>
-            </tr>
-          </thead>
-        </table>
-      </div>
-      <div class="tbl-content">
-        <table class="table-hover" cellpadding="0" cellspacing="0" border="0">
-          <tbody>
-            <tr
-              v-for="(rep, index) in reposData"
-              :key="index"
-              @click="onClickRow(rep, index)"
-            >
-              <td scope="row">{{ index + 1 }}</td>
-              <td>{{ rep.name }}</td>
-              <td>{{ dateFormatter(rep.created_at) }}</td>
-              <td>{{ rep.language }}</td>
-              <td>
-                <span v-if="rep.license"> {{ rep.license.name }}</span>
-                <span v-else>Not defined</span>
-              </td>
-              <td>
-                <a :href="rep.svn_url" target="_blank">Github</a>
-              </td>
-            </tr>
-          </tbody>
-        </table>
+  <div class="content">
+    <div class="card"
+      v-for="(rep, index) in reposData"
+      :key="index"
+      @click="onClickRow(rep, index)"
+    >
+      <div class="card-content">
+        <div class="media">
+          <div class="media-left">
+            <figure class="image is-48x48">
+              <span class="tag is-primary">
+                {{ rep.language }}
+              </span>
+            </figure>
+          </div>
+          <div class="media-content">
+            <p class="title is-4">{{ rep.name }}</p>
+            <p class="subtitle is-6"><a :href="rep.svn_url" target="_blank">{{ rep.svn_url }}</a></p>
+          </div>
+        </div>
+        <div class="content">
+          {{ rep.description }}
+
+          <br><br>
+          <span class="tag is-light">
+            Since:
+            <time :datatime="rep.created_at">{{ dateFormatter(rep.created_at) }}</time>
+          </span>
+          <span class="tag is-light">
+            Last push:
+            <time :datetime="rep.pushed_at">{{ dateFormatter(rep.pushed_at) }}</time>
+          </span>
+        </div>
       </div>
     </div>
   </div>
@@ -57,6 +52,7 @@ export default {
       return date.substring(0, 10)
     },
     onClickRow(repository, _index) {
+      this.repositoryLanguages()
       this.repositorySelected = repository
     },
   },
