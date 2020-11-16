@@ -45,7 +45,7 @@
 <script>
 export default {
   props: {
-    reposData: { type: Object, required: true },
+    reposData: { type: Array, required: true },
   },
   data() {
     return {
