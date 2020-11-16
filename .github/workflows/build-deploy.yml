@@ -2,7 +2,7 @@ name: build-deploy
 
 on:
   release:
-    types: [published, updated]
+    types: [published, edited]
 
 jobs:
   build-deploy:
@@ -62,3 +62,4 @@ jobs:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: ./dist
         publish_branch: master
+        external_repository: dev-pet-projects/dev-pet-projects.github.io
