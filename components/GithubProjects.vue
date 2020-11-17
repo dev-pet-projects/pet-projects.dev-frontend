@@ -1,42 +1,52 @@
 <template>
-  <div class="row">
-    <div class="col">
-      <div class="tbl-header">
-        <table cellpadding="0" cellspacing="0" border="0">
-          <thead>
-            <tr>
-              <th>#</th>
-              <th>Name</th>
-              <th>Created</th>
-              <th>Language</th>
-              <th>License</th>
-              <th>Link</th>
-            </tr>
-          </thead>
-        </table>
-      </div>
-      <div class="tbl-content">
-        <table class="table-hover" cellpadding="0" cellspacing="0" border="0">
-          <tbody>
-            <tr
-              v-for="(rep, index) in reposData"
-              :key="index"
-              @click="onClickRow(rep, index)"
-            >
-              <td scope="row">{{ index + 1 }}</td>
-              <td>{{ rep.name }}</td>
-              <td>{{ dateFormatter(rep.created_at) }}</td>
-              <td>{{ rep.language }}</td>
-              <td>
-                <span v-if="rep.license"> {{ rep.license.name }}</span>
-                <span v-else>Not defined</span>
-              </td>
-              <td>
-                <a :href="rep.svn_url" target="_blank">Github</a>
-              </td>
-            </tr>
-          </tbody>
-        </table>
+  <div class="columns is-2 is-multiline is-mobile is-variable">
+    <div
+      v-for="(rep, index) in reposData"
+      :key="index"
+      class="column"
+      @click="onClickRow(rep, index)"
+    >
+      <div class="card">
+        <div class="card-content">
+          <div class="media">
+            <div class="media-left">
+              <figure class="image is-48x48">
+                <span class="tag is-primary">
+                  {{ rep.language }}
+                </span>
+              </figure>
+            </div>
+            <div class="media-content">
+              <p class="title is-4">
+                <a :href="rep.svn_url" target="_blank">{{ rep.name }}</a>
+              </p>
+              <p class="subtitle is-6">
+                <font-awesome-icon :icon="['fas', 'star']" />
+                {{ rep.stargazers_count }}
+                &nbsp;
+                <font-awesome-icon :icon="['fas', 'eye']" />
+                {{ rep.watchers_count }}
+              </p>
+            </div>
+          </div>
+          <div class="content">
+            {{ rep.description }}
+
+            <br /><br />
+            <span class="tag is-light">
+              Since:
+              <time :datatime="rep.created_at">{{
+                dateFormatter(rep.created_at)
+              }}</time>
+            </span>
+            <span class="tag is-light">
+              Last push:
+              <time :datetime="rep.pushed_at">{{
+                dateFormatter(rep.pushed_at)
+              }}</time>
+            </span>
+          </div>
+        </div>
       </div>
     </div>
   </div>
