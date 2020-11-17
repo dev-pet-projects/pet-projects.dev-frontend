@@ -1,36 +1,51 @@
 <template>
-  <div class="content">
-    <div class="card"
+  <div class="columns is-2 is-multiline is-mobile is-variable">
+    <div
       v-for="(rep, index) in reposData"
       :key="index"
+      class="column"
       @click="onClickRow(rep, index)"
     >
-      <div class="card-content">
-        <div class="media">
-          <div class="media-left">
-            <figure class="image is-48x48">
-              <span class="tag is-primary">
-                {{ rep.language }}
-              </span>
-            </figure>
+      <div class="card">
+        <div class="card-content">
+          <div class="media">
+            <div class="media-left">
+              <figure class="image is-48x48">
+                <span class="tag is-primary">
+                  {{ rep.language }}
+                </span>
+              </figure>
+            </div>
+            <div class="media-content">
+              <p class="title is-4">
+                <a :href="rep.svn_url" target="_blank">{{ rep.name }}</a>
+              </p>
+              <p class="subtitle is-6">
+                <font-awesome-icon :icon="['fas', 'star']" />
+                {{ rep.stargazers_count }}
+                &nbsp;
+                <font-awesome-icon :icon="['fas', 'eye']" />
+                {{ rep.watchers_count }}
+              </p>
+            </div>
           </div>
-          <div class="media-content">
-            <p class="title is-4">{{ rep.name }}</p>
-            <p class="subtitle is-6"><a :href="rep.svn_url" target="_blank">{{ rep.svn_url }}</a></p>
-          </div>
-        </div>
-        <div class="content">
-          {{ rep.description }}
+          <div class="content">
+            {{ rep.description }}
 
-          <br><br>
-          <span class="tag is-light">
-            Since:
-            <time :datatime="rep.created_at">{{ dateFormatter(rep.created_at) }}</time>
-          </span>
-          <span class="tag is-light">
-            Last push:
-            <time :datetime="rep.pushed_at">{{ dateFormatter(rep.pushed_at) }}</time>
-          </span>
+            <br /><br />
+            <span class="tag is-light">
+              Since:
+              <time :datatime="rep.created_at">{{
+                dateFormatter(rep.created_at)
+              }}</time>
+            </span>
+            <span class="tag is-light">
+              Last push:
+              <time :datetime="rep.pushed_at">{{
+                dateFormatter(rep.pushed_at)
+              }}</time>
+            </span>
+          </div>
         </div>
       </div>
     </div>
@@ -52,7 +67,6 @@ export default {
       return date.substring(0, 10)
     },
     onClickRow(repository, _index) {
-      this.repositoryLanguages()
       this.repositorySelected = repository
     },
   },

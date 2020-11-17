@@ -13,7 +13,7 @@ export default {
   getContributors(repoName) {
     return GithubApi().get('/repos/' + repoName + '/contributors')
   },
-  getRepositoryLanguages(lang_url) {
-    return GithubApi().get(lang_url)
+  getRepositoryLanguages(langUrl) {
+    return GithubApi().get(langUrl)
   },
 }
