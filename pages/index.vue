@@ -20,12 +20,10 @@ export default {
     ...mapState(['orgRepos']),
   },
   mounted() {
-    this.checkStorage().then((_) => {
-      this.saveOrgRepos()
-    })
+    this.checkStorage()
   },
   methods: {
-    ...mapActions(['checkStorage', 'saveOrgRepos']),
+    ...mapActions(['saveOrgRepos', 'checkStorage']),
   },
 }
 </script>
