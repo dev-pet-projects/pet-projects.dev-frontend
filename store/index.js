@@ -1,7 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 
-import ls from '~/plugins/localStorageService'
 import idbs from '~/plugins/indexedDBService'
 import GithubRepo from '~/plugins/github-repo'
 
@@ -39,11 +38,8 @@ export const actions = {
     state.dataBaseFields.forEach(async (field) => {
       try {
         await idbs.checkStorage(field).then((data) => {
-          //   npm install -g typescript-language-serverIndexedDB did not find the data, try localStorage
-          if (data === undefined) data = ls.checkStorage(field)
-
-          // LocalStorage did not find the data, fetch it from API
-          if (data === null) {
+          //   npm install -g typescript-language-serverIndexedDB did not find the data
+          if ((Array.isArray(data) && data.length === 0)) {
             GithubRepo.getRepositories().then((response) => {
               data = response.data
               commit('setOrgRepos', data)
