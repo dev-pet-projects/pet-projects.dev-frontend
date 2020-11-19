@@ -1,13 +1,13 @@
 <template>
   <section class="section">
     <div class="columns is-mobile">
-      <github-projects :repos-data="reposData" />
+      <github-projects :repos-data="orgRepos" />
     </div>
   </section>
 </template>
 
 <script>
-import GithubRepo from '~/plugins/github-repo'
+import { mapState, mapActions } from 'vuex'
 import GithubProjects from '~/components/GithubProjects'
 
 export default {
@@ -16,21 +16,14 @@ export default {
   components: {
     GithubProjects,
   },
-  data() {
-    return {
-      reposData: [],
-    }
+  computed: {
+    ...mapState(['orgRepos']),
   },
-  created() {
-    this.getRepositories()
+  mounted() {
+    this.checkStorage()
   },
   methods: {
-    getRepositories() {
-      // Organisation's repositories
-      GithubRepo.getRepositories().then((response) => {
-        this.reposData = response.data
-      })
-    },
+    ...mapActions(['saveOrgRepos', 'checkStorage']),
   },
 }
 </script>
