@@ -26,12 +26,12 @@ export const actions = {
     try {
       await Promise.all(
         state.orgRepos.map((field) => {
-          idbs.saveToStorage('orgRepos', field)
+          return idbs.saveToStorage('orgRepos', field)
         })
       )
     } catch (error) {
       state.dataBaseFields.map((field) => {
-        ls.saveToStorage(field, state[field]())
+        return ls.saveToStorage(field, state[field]())
       })
     }
   },
