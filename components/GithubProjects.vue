@@ -10,11 +10,14 @@
         <div class="card-content">
           <div class="media">
             <div class="media-left">
-              <figure class="image is-48x48">
-                <span class="tag is-primary">
-                  {{ rep.language }}
-                </span>
+              <figure class="image is-48x48 mb-2">
+                <img
+                  :src="'/brands_svg/' + rep.language.toLowerCase() + '.svg'"
+                />
               </figure>
+              <div class="block is-size-6 has-text-centered">
+                {{ rep.language }}
+              </div>
             </div>
             <div class="media-content">
               <p class="title is-4">
