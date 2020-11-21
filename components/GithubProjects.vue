@@ -11,7 +11,9 @@
           <div class="media">
             <div class="media-left">
               <figure class="image is-48x48 mb-2">
-                <img :src="'/brands_svg/' + rep.language.toLowerCase() + '.svg'" />
+                <img
+                  :src="'/brands_svg/' + rep.language.toLowerCase() + '.svg'"
+                />
               </figure>
               <div class="block is-size-6 has-text-centered">
                 {{ rep.language }}
