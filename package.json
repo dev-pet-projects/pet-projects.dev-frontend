@@ -34,7 +34,7 @@
     "@nuxtjs/axios": "^5.12.3",
     "@nuxtjs/pwa": "^3.3.2",
     "core-js": "^3.8.0",
-    "idb": "^5.0.7",
+    "idb": "^5.0.8",
     "nuxt": "^2.14.8",
     "nuxt-buefy": "^0.4.3",
     "nuxt-fontawesome": "^0.4.0",
