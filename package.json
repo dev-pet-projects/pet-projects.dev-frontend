@@ -31,7 +31,7 @@
     "@fortawesome/vue-fontawesome": "^2.0.0",
     "@nuxt/content": "^1.11.1",
     "@nuxt/typescript-runtime": "^2.0.0",
-    "@nuxtjs/axios": "^5.12.3",
+    "@nuxtjs/axios": "^5.12.4",
     "@nuxtjs/pwa": "^3.3.2",
     "core-js": "^3.8.1",
     "idb": "^5.0.8",
