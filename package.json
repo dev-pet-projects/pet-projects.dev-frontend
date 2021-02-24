@@ -41,7 +41,7 @@
     "push-dir": "^0.4.1"
   },
   "devDependencies": {
-    "@commitlint/cli": "^11.0.0",
+    "@commitlint/cli": "^12.0.0",
     "@commitlint/config-conventional": "^12.0.0",
     "@nuxt/types": "^2.15.2",
     "@nuxt/typescript-build": "^2.0.6",
