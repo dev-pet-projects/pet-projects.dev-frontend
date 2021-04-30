@@ -33,7 +33,7 @@
     "@nuxt/typescript-runtime": "^2.1.0",
     "@nuxtjs/axios": "^5.13.1",
     "@nuxtjs/pwa": "^3.3.5",
-    "core-js": "^3.11.0",
+    "core-js": "^3.11.1",
     "idb": "^5.0.8",
     "nuxt": "^2.15.4",
     "nuxt-buefy": "^0.4.7",
