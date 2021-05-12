@@ -35,7 +35,7 @@
     "@nuxtjs/pwa": "^3.3.5",
     "core-js": "^3.12.1",
     "idb": "^5.0.8",
-    "nuxt": "^2.15.4",
+    "nuxt": "^2.15.5",
     "nuxt-buefy": "^0.4.7",
     "nuxt-fontawesome": "^0.4.0",
     "push-dir": "^0.4.1"
