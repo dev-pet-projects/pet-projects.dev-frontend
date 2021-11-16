@@ -36,7 +36,7 @@
     "core-js": "^3.19.1",
     "idb": "^5.0.8",
     "nuxt": "^2.15.8",
-    "nuxt-buefy": "^0.4.10",
+    "nuxt-buefy": "^0.4.13",
     "nuxt-fontawesome": "^0.4.0",
     "push-dir": "^0.4.1"
   },
